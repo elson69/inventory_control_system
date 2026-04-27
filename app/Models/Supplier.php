@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Filament\Models\Contracts\HasName;
 
-class Supplier extends Model
+class Supplier extends Model implements HasName
 {
     use HasFactory;
 
@@ -27,5 +28,18 @@ class Supplier extends Model
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function getFilamentName(): string
+    {
+        return (string) $this->company_name;
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['company_name', 'email', 'phone'])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
     }
 }
