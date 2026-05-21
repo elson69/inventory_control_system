@@ -13,9 +13,7 @@ class StockLogResource extends Resource
 {
     protected static ?string $model = StockLog::class;
 
-    protected static ?string $tenantOwnershipRelationshipName = 'product';
-
-    protected static ?string $label = 'Stock Log';
+protected static ?string $label = 'Stock Log';
 
     public static function getNavigationIcon(): string|\BackedEnum|null { return 'heroicon-o-clipboard-document-list'; }
 

@@ -34,10 +34,4 @@ class StockLog extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function supplier(): BelongsTo
-    {
-        // This assumes StockLog has a 'product_id' 
-        // and Product has a 'supplier_id'
-        return $this->product->supplier(); 
-    }
 }
