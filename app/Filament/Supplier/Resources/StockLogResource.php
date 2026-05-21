@@ -63,6 +63,11 @@ protected static ?string $label = 'Stock Log';
         ];
     }
 
+    public static function isScopedToTenant(): bool
+    {
+        return false;
+    }
+
     public static function canCreate(): bool
     {
         return false;
