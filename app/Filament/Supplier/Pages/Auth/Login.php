@@ -6,5 +6,5 @@ use Filament\Auth\Pages\Login as BaseLogin;
 
 class Login extends BaseLogin
 {
-    protected static string $view = 'filament.supplier.auth.login';
+    protected string $view = 'filament.supplier.auth.login';
 }
