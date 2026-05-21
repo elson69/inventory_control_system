@@ -8,6 +8,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use App\Filament\Supplier\Pages\Auth\Login as SupplierLogin;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -26,7 +27,7 @@ class SupplierPanelProvider extends PanelProvider
         return $panel
             ->id('supplier')
             ->path('supplier')
-            ->login()
+            ->login(SupplierLogin::class)
             ->colors([
                 'primary' => Color::Teal,
             ])

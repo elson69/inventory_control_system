@@ -9,6 +9,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use App\Filament\Admin\Pages\Auth\Login as AdminLogin;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -27,7 +28,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->login(AdminLogin::class)
             ->colors([
                 'primary' => Color::Indigo,
             ])
