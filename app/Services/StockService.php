@@ -49,7 +49,8 @@ class StockService
         ?string $remarks,
         User $actor
     ): StockLog {
-        $product->update(['stock_quantity' => $newBalance]);
+        $product->stock_quantity = $newBalance;
+        $product->save();
 
         $log = StockLog::create([
             'product_id' => $product->id,
